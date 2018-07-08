@@ -34,6 +34,7 @@ public class EmployeeDAO {
 		return (int) id;
 	}
 
+	//Get employee by id
 	public Employee getEmployeeById(int id) {
 		Session session = SessionFactoryHelper.getSessionFactory().openSession();
 		Employee employee = session.get(Employee.class, id);
@@ -57,6 +58,7 @@ public class EmployeeDAO {
 		return (int) id;
 	}
 
+	//Check time available time in timeoff table
 	public boolean checkTimeSlotInTimeOff(int empID, Date sd, Date ed) {
 		Session session = SessionFactoryHelper.getSessionFactory().openSession();
 		String sql = "FROM TimeOff where EMP_ID=:id and ((START_TIME<=:sd and END_TIME >=:sd) or (START_TIME <=:ed and END_TIME >=:ed))";

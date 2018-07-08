@@ -58,6 +58,7 @@ public class EmployeeService {
 		return jsonObject;
 	}
 
+	//Method to check available time
 	public boolean checkAvailableTimeSlot(int empId, Date startTime, Date endTime) {
 		boolean isTimeSlotAvailableInAssignMentTable = assignmentDAO.getListOfAssignmentOfEmployee(empId, startTime,
 				endTime);

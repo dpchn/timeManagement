@@ -1,7 +1,6 @@
 package com.management.dao;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -33,6 +32,8 @@ public class AssignmentDAO {
 		return (int) id;
 	}
 
+	
+	//List of assignment of employee
 	public boolean getListOfAssignmentOfEmployee(int empID, Date sd, Date ed) {
 		Session session = SessionFactoryHelper.getSessionFactory().openSession();
 		String sql = "FROM Assignment where EMP_ID=:id and ((START_TIME<=:sd and END_TIME >=:sd) or (START_TIME <=:ed and END_TIME >=:ed))";
@@ -48,17 +49,6 @@ public class AssignmentDAO {
 		} finally {
 			session.close();
 		}
-
 	}
-
-	/*
-	 * public static void main(String[] args) { SimpleDateFormat
-	 * simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm"); try { Date
-	 * startDate = simpleDateFormat.parse("2018-08-15 21:50"); Date endDate =
-	 * simpleDateFormat.parse("2018-08-15 21:54"); System.out.println(new
-	 * AssignmentDAO().getListOfAssignmentOfEmployee(1, startDate, endDate));
-	 * 
-	 * } catch (Exception e) { System.out.println("main "+e); } }
-	 */
 
 }
